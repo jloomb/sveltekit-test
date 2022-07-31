@@ -4,29 +4,45 @@
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about">About</a>
+	<div class="navbar bg-primary text-primary-content">
+		<div class="navbar-start">
+		  <div class="dropdown">
+			<label tabindex="0" class="btn btn-ghost lg:hidden">
+			  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+			</label>
+			<ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+			  <li><a sveltekit:prefetch href="/">Home</a></li>
+			  <li tabindex="0">
+				<a sveltekit:prefetch href="/about" class="justify-between">
+				  About
+			  </li>
+			  <li><a sveltekit:prefetch href="/todos">Todos</a></li>
+			</ul>
+		  </div>
+		  <a class="btn btn-ghost normal-case text-xl">souptrippers</a>
+		</div>
+		<div class="navbar-center hidden lg:flex">
+		  <ul class="menu menu-horizontal p-0">
+			<li class:active={$page.url.pathname === '/'}>
+				<a sveltekit:prefetch href="/">Home</a>
+			</li>
+			<li tabindex="0" class:active={$page.url.pathname === '/about'}>
+			  <a sveltekit:prefetch href="/about">
+				About
+			  </a>
 			</li>
 			<li class:active={$page.url.pathname === '/todos'}>
 				<a sveltekit:prefetch href="/todos">Todos</a>
 			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
+		  </ul>
+		</div>
+		<div class="navbar-end">
+			<button class="btn btn-square btn-ghost">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+			</button>
+		</div>
+	  </div>
 
 	<div class="corner">
 		<!-- TODO put something else here? github link? -->
